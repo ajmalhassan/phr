@@ -37,7 +37,7 @@ if(isset($_POST['Submit'])) {
 
 		if(mysqli_num_rows($result) > 0){
 			if($res["desig"]== "Doctor"){
-				echo "Dash for doc";
+                header('Location: dash.php');
 			}
 			else if($res["desig"]== "Patient"){
 				echo "Dash for patient";
