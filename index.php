@@ -1,83 +1,109 @@
-<?php
-//including the database connection file
-include_once("config.php");
-
-//fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM `reg_users` ORDER BY id DESC"); 
-?>
-
+<!DOCTYPE html>
 <html>
-<head>	
-	<title>Homepage</title>
-	<link rel="stylesheet" href="style.css">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home | PHR</title>
 </head>
 
 <body>
-	<form action="login.php" method="post" id="login">
-		<h3>Login</h3>
-		<table width="25%" border="0">
-			<tr> 
-				<td>Username</td>
-				<td><input type="text" name="username"></td>
-			</tr>
-			<tr> 
-				<td>Password</td>
-				<td><input type="text" name="password"></td>
-			</tr>
-			<tr> 
-				<td></td>
-				<td><input type="submit" name="Submit" value="Login"></td>
-			</tr>
-		</table>
-		<p>not a member? <a class="phr-link" onclick="toggle(0)">click here</a></p>
-	</form>
 
 
-	<form action="add.php" method="post" id="register">
-		<h3>Register</h3>
-		<table width="25%" border="0">
-			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="username"></td>
-			</tr>
-			<tr> 
-				<td>Password</td>
-				<td><input type="text" name="password"></td>
-			</tr>
-			<tr> 
-				<td>Designation</td>
-				<td>
-					<select name="desig">
-						<option value="Doctor">Doctor</option>
-						<option value="Patient">Patient</option>
-					</select>
-				</td>
-			</tr>
-			<tr> 
-				<td></td>
-				<td><input type="submit" name="Submit" value="Register"></td>
-			</tr>
-		</table>
-		<p>already member? <a class="phr-link" onclick="toggle(1)">click here</a></p>
-	</form>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">PHR</a>
+    </div>
+</nav>
 
-	<script type="text/javascript">
-		var login = document.getElementById('login');
-		var register = document.getElementById('register');
+<div class="container">
 
-		register.style.display = "none";
+    <div class="row">
+        <div class="col s12 m6 offset-m3" style="margin-top: 10px">
+            <div class="card" id="login">
+                <div class="card-content">
+                    <span class="card-title">Login</span>
 
-		function toggle(flag){
-			if (flag === 0) {
-				login.style.display="none";
-				register.style.display="block";
-			}
-			else if(flag === 1){
-				register.style.display="none";
-				login.style.display="block";
-			}
-		}
-	</script>
+
+                    <form action="login.php" method="post" >
+
+                        <div class="row">
+                            <form class="col s12">
+                                    <div class="input-field col s12">
+                                        <input id="username" type="text" class="validate" name="username">
+                                        <label for="username">Username</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="password" type="password" class="validate" name="password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input class="waves-effect waves-light btn col s12" type="submit" name="Submit" value="Login">
+                                    </div>
+                            </form>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+                <div class="card-action">
+                    <p>not a member? <a class="phr-link" onclick="toggle(0)">click here</a></p>
+                </div>
+            </div>
+
+
+            <div class="card" id="register">
+                <div class="card-content">
+                    <span class="card-title">Register</span>
+
+
+                    <form action="add.php" method="post">
+
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="input-field col s12">
+                                    <input id="username" type="text" class="validate" name="username">
+                                    <label for="username">Username</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="password" type="password" class="validate" name="password">
+                                    <label for="password">Password</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input class="waves-effect waves-light btn col s12" type="submit" name="Submit" value="Register">
+                                </div>
+                            </form>
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="card-action">
+                    <p>already member? <a class="phr-link" onclick="toggle(1)">click here</a></p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
 
 </body>
 </html>
+
