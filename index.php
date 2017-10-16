@@ -16,18 +16,18 @@
 
 
 <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">PHR</a>
+    <div class="nav-wrapper c-gradient">
+        <a href="#" class="brand-logo center">Patient Health Record</a>
     </div>
 </nav>
 
 <div class="container">
 
     <div class="row">
-        <div class="col s12 m6 offset-m3" style="margin-top: 10px">
+        <div class="col s12 m6 offset-m3" style="margin-top: 5%">
             <div class="card" id="login">
                 <div class="card-content">
-                    <span class="card-title">Login</span>
+                    <span class="card-title center-align">Login</span>
 
 
                     <form action="login.php" method="post" >
@@ -35,15 +35,15 @@
                         <div class="row">
                             <form class="col s12">
                                     <div class="input-field col s12">
-                                        <input id="username" type="text" class="validate" name="username">
+                                        <input id="username" type="text" class="validate" name="username" required>
                                         <label for="username">Username</label>
                                     </div>
                                     <div class="input-field col s12">
-                                        <input id="password" type="password" class="validate" name="password">
+                                        <input id="password" type="password" class="validate" name="password" required>
                                         <label for="password">Password</label>
                                     </div>
                                     <div class="input-field col s12">
-                                        <input class="waves-effect waves-light btn col s12" type="submit" name="Submit" value="Login">
+                                        <input class="waves-effect waves-light btn col s12 c-gradient" type="submit" name="Submit" value="Login">
                                     </div>
                             </form>
                         </div>
@@ -53,7 +53,7 @@
 
 
                 </div>
-                <div class="card-action">
+                <div class="card-action center-align">
                     <p>not a member? <a class="phr-link" onclick="toggle(0)">click here</a></p>
                 </div>
             </div>
@@ -61,7 +61,7 @@
 
             <div class="card" id="register">
                 <div class="card-content">
-                    <span class="card-title">Register</span>
+                    <span class="card-title center-align">Register</span>
 
 
                     <form action="add.php" method="post">
@@ -77,7 +77,7 @@
                                     <label for="password">Password</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input class="waves-effect waves-light btn col s12" type="submit" name="Submit" value="Register">
+                                    <input class="waves-effect waves-light btn col s12 c-gradient" type="submit" name="Submit" value="Register">
                                 </div>
                             </form>
                         </div>
@@ -86,7 +86,7 @@
 
 
                 </div>
-                <div class="card-action">
+                <div class="card-action center-align">
                     <p>already member? <a class="phr-link" onclick="toggle(1)">click here</a></p>
                 </div>
             </div>
