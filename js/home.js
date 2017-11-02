@@ -515,9 +515,6 @@ var list = {
         "Wadi",
         "Yadgir"
     ],
-    "Karnatka": [
-        "Mysore"
-    ],
     "Kerala": [
         "Adoor",
         "Alappuzha",
@@ -656,7 +653,6 @@ var list = {
         "Wara Seoni"
     ],
     "Maharashtra": [
-        "[[]]",
         "Ahmednagar",
         "Akola",
         "Akot",
@@ -1331,3 +1327,28 @@ var list = {
     ]
 };
 /* list ends */
+
+
+// populating state list
+var state = document.getElementById("state");
+var city = document.getElementById("city");
+
+for (item in list){
+    state.options[state.options.length] = new Option(item, item);
+}
+
+function populateCity() {
+    city.options.length = 0;
+    var selectedState = state.options[state.selectedIndex].value;
+    var list_state = list[selectedState];
+
+    list_state.forEach(function(list_city) {
+        city.options[city.options.length] = new Option(list_city, list_city);
+        console.log(list_city);
+    });
+    //reinitializing select elements
+    $('select').material_select();
+
+}
+// calling to set the city select box for the default selected state
+populateCity();

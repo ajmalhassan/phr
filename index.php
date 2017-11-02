@@ -31,12 +31,12 @@
 
                     <div class="row">
                         <form class="col s12" action="login.php" method="post">
-                            <div class="input-field col s12">
-                                <input id="username" type="text" class="validate" name="username" required>
+                            <div class="input-field col s12 m">
+                                <input id="username" type="text"  name="username" required>
                                 <label for="username">Username</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="password" type="password" class="validate" name="password" required>
+                                <input id="password" type="password"  name="password" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field col s12">
@@ -58,37 +58,38 @@
                     <span class="card-title center-align">Register</span>
 
                     <div class="row">
-                        <form class="col s12" action="add.php" method="post">
+                        <form class="col s12" action="add.php" method="post" novalidate>
+                            <p style="font-size: x-small; font-weight: bold; text-align: center;">All fields except middle name are mandatory.</p>
                             <div class="input-field col s12">
-                                <input id="first_name" type="text" class="validate" name="f_name">
+                                <input id="first_name" type="text"  name="f_name" required>
                                 <label for="first_name">First Name</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="first_name" type="text" class="validate" name="m_name">
+                                <input id="first_name" type="text"  name="m_name">
                                 <label for="first_name">Middle Name</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="last_name" type="text" class="validate" name="l_name">
+                                <input id="last_name" type="text"  name="l_name" required>
                                 <label for="last_name">Last Name</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="username" type="text" class="validate" name="username">
+                                <input id="username" type="text"  name="username" required>
                                 <label for="username">Username</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="email" type="email" class="validate" name="email">
+                                <input id="email" type="email"  name="email" required>
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="phone" type="number" class="validate" name="phone">
+                                <input id="phone" type="number"  name="phone" required>
                                 <label for="phone">Phone</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="password" type="password" class="validate" name="password">
+                                <input id="password" type="password"  name="password" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="c_password" type="password" class="validate" name="c_password">
+                                <input id="c_password" type="password"  name="c_password" required>
                                 <label for="c_password">Confirm Password</label>
                             </div>
                             <div class="input-field col s12">
@@ -103,15 +104,15 @@
 
                             <div id="patient_form">
                                 <div class="input-field col s12">
-                                    <input id="emergency-phone" type="number" class="validate" name="emergency-phone">
+                                    <input id="emergency-phone" type="number"  name="emergency-phone" required>
                                     <label for="emergency-phone">Emergency Phone</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input type="text" class="datepicker">
+                                    <input type="text" class="datepicker" name="dob"required>
                                     <label for="specialization">Date of birth</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <select class="icons" id="desig" name="desig" onchange="toggleForm()">
+                                    <select class="icons" id="gender" name="gender">
                                         <option value="Male" data-icon="./img/man.png" class="left circle" selected>Male</option>
                                         <option value="Female" data-icon="./img/woman.png" class="left circle">Female</option>
                                         <option value="Other" data-icon="./img/other.png" class="left circle">Other</option>
@@ -119,21 +120,48 @@
                                     <label>Gender</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <select class="icons" id="state" name="state">
-                                        <option value="Male" selected>Kerala</option>
+                                    <select class="icons" id="marital" name="marital">
+                                        <option value="Single" selected>Single</option>
+                                        <option value="Married" >Married</option>
+                                        <option value="Divorced" >Divorced</option>
+                                        <option value="Widowed" >Widowed</option>
+                                    </select>
+                                    <label>Marital Status</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <select class="icons" id="country" name="country">
+                                        <option value="India">India</option>
+                                    </select>
+                                    <label>Country <b> <i class="material-icons" style="font-size: x-small;">info_outline</i> We're only available in India.</b></label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <select class="icons" id="state" name="state" onchange="populateCity()">
                                     </select>
                                     <label>State</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <select class="icons" id="city" name="city">
+                                    </select>
+                                    <label>City</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="address" type="text"  name="address" required>
+                                    <label for="address">Address</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="pin" type="number"  name="pin" required>
+                                    <label for="pin">PIN Code</label>
                                 </div>
                             </div>
 
 
                             <div id="doctor_form">
                                 <div class="input-field col s12">
-                                    <input id="specialization" type="text" class="validate" name="specialization">
+                                    <input id="specialization" type="text"  name="specialization" required>
                                     <label for="specialization">Specialization</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input id="horc" type="text" class="validate" name="horc">
+                                    <input id="horc" type="text"  name="horc" required>
                                     <label for="horc">Hospital / Clinics</label>
                                 </div>
                             </div>
@@ -177,9 +205,9 @@
 
 
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="js/home.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
 
 <script>
     //initializing select element
