@@ -13,10 +13,7 @@ var d_form = '<div id="doctor_form"> <div class="input-field col s12"> <input id
 function toggleForm(){
 
     var desig = document.getElementById('desig').value;
-
-//            console.log(typeof desig);
     optional_fields.innerHTML='';
-
     if(desig === 'Patient'){
         optional_fields.innerHTML = p_form;
     }

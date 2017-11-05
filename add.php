@@ -43,8 +43,6 @@ if(isset($_POST['Submit'])) {
             $id = $row['id'];
         }
 
-        echo 'id:'. $id;
-
 
 
         // checking user designation and reading data accordingly
@@ -62,6 +60,12 @@ if(isset($_POST['Submit'])) {
             $query = "INSERT INTO `patient_record` (`r_id`, `p_id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `address`, `city`, `state`, `nationality`, `pincode`, `marital_status`, `phone`, `email`, `emergency-contact`) VALUES (NULL, '".$id."', '".$firstname."', '".$middlename."', '".$lastname."', '".$gender."', '".$dob."', '".$address."', '".$city."', '".$state."', '".$country."', '".$pin."', '".$marital."', '".$phone."', '".$email."', '".$emerg_phone."')";
             //executing query and retrieving id
             $patient_res = mysqli_query($mysqli, $query);
+            if($patient_res){
+                header('Location: index.php');
+            }
+            else{
+                echo "error something went wrong..";
+            }
         } else {
             $specialization = mysqli_real_escape_string($mysqli, $_POST['specialization']);
             $horc = mysqli_real_escape_string($mysqli, $_POST['horc']);
@@ -69,6 +73,12 @@ if(isset($_POST['Submit'])) {
             $query = "INSERT INTO `doctor_record` (`r_id`, `d_id`, `first_name`, `middle_name`, `last_name`, `Specialization`, `hospitals/clinics`, `phone`, `email`) VALUES (NULL, '".$id."', '".$firstname."', '".$middlename."', '".$lastname."', '".$specialization."', '".$horc."', '".$phone."', '".$email."')";
             //executing query and retrieving id
             $doc_res = mysqli_query($mysqli, $query);
+            if($doc_res){
+                header('Location: dash.php');
+            }
+            else{
+                echo "error something went wrong..";
+            }
         }
 
 

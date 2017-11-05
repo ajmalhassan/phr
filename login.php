@@ -36,6 +36,10 @@ if(isset($_POST['Submit'])) {
 
 
 		if(mysqli_num_rows($result) > 0){
+            session_start();
+
+
+
 			if($res["desig"]== "Doctor"){
                 header('Location: dash.php');
 			}
