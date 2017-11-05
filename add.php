@@ -65,6 +65,10 @@ if(isset($_POST['Submit'])) {
         } else {
             $specialization = mysqli_real_escape_string($mysqli, $_POST['specialization']);
             $horc = mysqli_real_escape_string($mysqli, $_POST['horc']);
+            // setting query statement
+            $query = "INSERT INTO `doctor_record` (`r_id`, `d_id`, `first_name`, `middle_name`, `last_name`, `Specialization`, `hospitals/clinics`, `phone`, `email`) VALUES (NULL, '".$id."', '".$firstname."', '".$middlename."', '".$lastname."', '".$specialization."', '".$horc."', '".$phone."', '".$email."')";
+            //executing query and retrieving id
+            $doc_res = mysqli_query($mysqli, $query);
         }
 
 
