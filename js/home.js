@@ -2,8 +2,11 @@
 var login = document.getElementById('login');
 var register = document.getElementById('register');
 
-var p_form = document.getElementById('patient_form');
-var d_form = document.getElementById('doctor_form');
+var optional_fields = document.getElementById('optional_fields');
+
+
+var p_form = '<div id="patient_form"> <div class="input-field col s12"> <input id="emergency-phone" type="number" name="emergency-phone" required> <label for="emergency-phone">Emergency Phone</label> </div><div class="input-field col s12"> <input type="text" class="datepicker" name="dob" required> <label for="specialization">Date of birth</label> </div><div class="input-field col s12"> <select class="icons" id="gender" name="gender"> <option value="Male" data-icon="./img/man.png" class="left circle" selected>Male</option> <option value="Female" data-icon="./img/woman.png" class="left circle">Female</option> <option value="Other" data-icon="./img/other.png" class="left circle">Other</option> </select> <label>Gender</label> </div><div class="input-field col s12"> <select class="icons" id="marital" name="marital"> <option value="Single" selected>Single</option> <option value="Married" >Married</option> <option value="Divorced" >Divorced</option> <option value="Widowed" >Widowed</option> </select> <label>Marital Status</label> </div><div class="input-field col s12"> <select class="icons" id="country" name="country"> <option value="India">India</option> </select> <label>Country <b> <i class="material-icons" style="font-size: x-small;">info_outline</i> We\'re only available in India.</b></label> </div><div class="input-field col s12"> <select class="icons" id="state" name="state" onchange="populateCity()"> </select> <label>State</label> </div><div class="input-field col s12"> <select class="icons" id="city" name="city"> </select> <label>City</label> </div><div class="input-field col s12"> <input id="address" type="text" name="address" required> <label for="address">Address</label> </div><div class="input-field col s12"> <input id="pin" type="number" name="pin" required> <label for="pin">PIN Code</label> </div></div>';
+var d_form = '<div id="doctor_form"> <div class="input-field col s12"> <input id="specialization" type="text" name="specialization" required> <label for="specialization">Specialization</label> </div><div class="input-field col s12"> <input id="horc" type="text" name="horc" required> <label for="horc">Hospital / Clinics</label> </div></div>';
 
 
 
@@ -12,14 +15,13 @@ function toggleForm(){
     var desig = document.getElementById('desig').value;
 
 //            console.log(typeof desig);
+    optional_fields.innerHTML='';
 
     if(desig === 'Patient'){
-        d_form.style.display='none';
-        p_form.style.display='block';
+        optional_fields.innerHTML = p_form;
     }
     else if(desig === 'Doctor'){
-        p_form.style.display='none';
-        d_form.style.display='block';
+        optional_fields.innerHTML = d_form;
     }
 
 }

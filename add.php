@@ -58,7 +58,10 @@ if(isset($_POST['Submit'])) {
             $city = mysqli_real_escape_string($mysqli, $_POST['city']);
             $address = mysqli_real_escape_string($mysqli, $_POST['address']);
             $pin = mysqli_real_escape_string($mysqli, $_POST['pin']);
-
+            // setting query statement
+            $query = "INSERT INTO `patient_record` (`r_id`, `p_id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `address`, `city`, `state`, `nationality`, `pincode`, `marital_status`, `phone`, `email`, `emergency-contact`) VALUES (NULL, '".$id."', '".$firstname."', '".$middlename."', '".$lastname."', '".$gender."', '".$dob."', '".$address."', '".$city."', '".$state."', '".$country."', '".$pin."', '".$marital."', '".$phone."', '".$email."', '".$emerg_phone."')";
+            //executing query and retrieving id
+            $patient_res = mysqli_query($mysqli, $query);
         } else {
             $specialization = mysqli_real_escape_string($mysqli, $_POST['specialization']);
             $horc = mysqli_real_escape_string($mysqli, $_POST['horc']);
