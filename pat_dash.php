@@ -204,7 +204,7 @@ include_once("nav.php");
                         <div class="file-field input-field">
                             <div class="btn c-gradient">
                                 <span>File</span>
-                                <input type="file">
+                                <input type="file" name="report">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
