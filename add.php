@@ -56,8 +56,14 @@ if(isset($_POST['Submit'])) {
             $city = mysqli_real_escape_string($mysqli, $_POST['city']);
             $address = mysqli_real_escape_string($mysqli, $_POST['address']);
             $pin = mysqli_real_escape_string($mysqli, $_POST['pin']);
+            $blood = mysqli_real_escape_string($mysqli, $_POST['blood']);
+            $height = mysqli_real_escape_string($mysqli, $_POST['height']);
+            $weight = mysqli_real_escape_string($mysqli, $_POST['weight']);
+            $insurance = mysqli_real_escape_string($mysqli, $_POST['insurance']);
+            $allergy = mysqli_real_escape_string($mysqli, $_POST['allergy']);
             // setting query statement
-            $query = "INSERT INTO `patient_record` (`r_id`, `p_id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `address`, `city`, `state`, `nationality`, `pincode`, `marital_status`, `phone`, `email`, `emergency-contact`) VALUES (NULL, '".$id."', '".$firstname."', '".$middlename."', '".$lastname."', '".$gender."', '".$dob."', '".$address."', '".$city."', '".$state."', '".$country."', '".$pin."', '".$marital."', '".$phone."', '".$email."', '".$emerg_phone."')";
+            $query = "INSERT INTO `patient_record` (`r_id`, `p_id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `blood_group`, `height`, `weight`, `allergy`, `insurance`, `address`, `city`, `state`, `nationality`, `pincode`, `marital_status`, `phone`, `email`, `emergency-contact`) VALUES (NULL, '".$id."', '".$firstname."', '".$middlename."', '".$lastname."', '".$gender."', '".$dob."', '".$blood."', '".$height."', '".$weight."', '".$allergy."', '".$insurance."', '".$address."', '".$city."', '".$state."', '".$country."', '".$pin."', '".$marital."', '".$phone."', '".$email."', '".$emerg_phone."')";
+            echo $query;
             //executing query and retrieving id
             $patient_res = mysqli_query($mysqli, $query);
             if($patient_res){

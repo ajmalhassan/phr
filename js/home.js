@@ -1,29 +1,11 @@
-
 var login = document.getElementById('login');
 var register = document.getElementById('register');
 
 var optional_fields = document.getElementById('optional_fields');
 
 
-var p_form = '<div id="patient_form"> <div class="input-field col s12"> <input id="emergency-phone" type="number" name="emergency-phone" required> <label for="emergency-phone">Emergency Phone</label> </div><div class="input-field col s12"> <input type="text" class="datepicker" name="dob" required> <label for="specialization">Date of birth</label> </div><div class="input-field col s12"> <select class="icons" id="gender" name="gender"> <option value="Male" data-icon="./img/man.png" class="left circle" selected>Male</option> <option value="Female" data-icon="./img/woman.png" class="left circle">Female</option> <option value="Other" data-icon="./img/other.png" class="left circle">Other</option> </select> <label>Gender</label> </div><div class="input-field col s12"> <select class="icons" id="marital" name="marital"> <option value="Single" selected>Single</option> <option value="Married" >Married</option> <option value="Divorced" >Divorced</option> <option value="Widowed" >Widowed</option> </select> <label>Marital Status</label> </div><div class="input-field col s12"> <select class="icons" id="country" name="country"> <option value="India">India</option> </select> <label>Country <b> <i class="material-icons" style="font-size: x-small;">info_outline</i> We\'re only available in India.</b></label> </div><div class="input-field col s12"> <select class="icons" id="state" name="state" onchange="populateCity()"> </select> <label>State</label> </div><div class="input-field col s12"> <select class="icons" id="city" name="city"> </select> <label>City</label> </div><div class="input-field col s12"> <input id="address" type="text" name="address" required> <label for="address">Address</label> </div><div class="input-field col s12"> <input id="pin" type="number" name="pin" required> <label for="pin">PIN Code</label> </div></div>';
+var p_form = '<div id="patient_form"> <div class="input-field col s12"> <select class="icons" id="blood" name="blood"> <option value="O+" class="left circle">O+</option> <option value="O-" class="left circle">O-</option> <option value="A+" class="left circle">A+</option> <option value="A-" class="left circle">A-</option> <option value="B+" class="left circle">B+</option> <option value="B-" class="left circle">B-</option> <option value="AB+" class="left circle">AB+</option> <option value="AB-" class="left circle">AB-</option> </select> <label>blood type</label> </div><div class="input-field col s12"> <input id="height" type="number" name="height" required> <label for="height">height in <b>cm</b></label> </div><div class="input-field col s12"> <input id="weight" type="number" name="weight" required> <label for="weight">weight in <b>kg</b></label> </div><div class="input-field col s12"> <input id="allergy" type="text" name="allergy" required> <label for="allergy">allergy <b>(if none, type no)</b></label> </div><div class="input-field col s12"> <select class="icons" id="insurance" name="insurance"> <option value="yes" class="left circle">yes</option> <option value="no" class="left circle">no</option> </select> <label>Insurance</label> </div> <div class="input-field col s12"> <input id="emergency-phone" type="number" name="emergency-phone" required> <label for="emergency-phone">Emergency Phone</label> </div><div class="input-field col s12"> <input type="date" name="dob" required> </div><div class="input-field col s12"> <select class="icons" id="gender" name="gender"> <option value="Male" data-icon="./img/man.png" class="left circle" selected>Male</option> <option value="Female" data-icon="./img/woman.png" class="left circle">Female</option> <option value="Other" data-icon="./img/other.png" class="left circle">Other</option> </select> <label>Gender</label> </div><div class="input-field col s12"> <select class="icons" id="marital" name="marital"> <option value="Single" selected>Single</option> <option value="Married" >Married</option> <option value="Divorced" >Divorced</option> <option value="Widowed" >Widowed</option> </select> <label>Marital Status</label> </div><div class="input-field col s12"> <select class="icons" id="country" name="country"> <option value="India">India</option> </select> <label>Country <b> We\'re only available in India.</b></label> </div><div class="input-field col s12"> <select class="icons" id="state" name="state" onchange="populateCity()"> </select> <label>State</label> </div><div class="input-field col s12"> <select class="icons" id="city" name="city"> </select> <label>City</label> </div><div class="input-field col s12"> <input id="address" type="text" name="address" required> <label for="address">Address</label> </div><div class="input-field col s12"> <input id="pin" type="number" name="pin" required> <label for="pin">PIN Code</label> </div></div>';
 var d_form = '<div id="doctor_form"> <div class="input-field col s12"> <input id="specialization" type="text" name="specialization" required> <label for="specialization">Specialization</label> </div><div class="input-field col s12"> <input id="horc" type="text" name="horc" required> <label for="horc">Hospital / Clinics</label> </div></div>';
-
-
-
-function toggleForm(){
-
-    var desig = document.getElementById('desig').value;
-    optional_fields.innerHTML='';
-    if(desig === 'Patient'){
-        optional_fields.innerHTML = p_form;
-    }
-    else if(desig === 'Doctor'){
-        optional_fields.innerHTML = d_form;
-    }
-
-}
-
-toggleForm();
 
 
 
@@ -33,6 +15,7 @@ function toggle(flag){
     if (flag === 0) {
         login.style.display="none";
         register.style.display="block";
+        toggleForm();
     }
     else if(flag === 1){
         register.style.display="none";
@@ -40,6 +23,9 @@ function toggle(flag){
     }
 }
 
+//initializing variables
+var state = {};
+var city = {};
 
 
 /* list of state and cities */
@@ -1328,12 +1314,11 @@ var list = {
 /* list ends */
 
 
-// populating state list
-var state = document.getElementById("state");
-var city = document.getElementById("city");
-
-for (item in list){
-    state.options[state.options.length] = new Option(item, item);
+function populateState(){
+    for (item in list){
+        state.options[state.options.length] = new Option(item, item);
+    }
+    $('#state').material_select();
 }
 
 function populateCity() {
@@ -1343,11 +1328,38 @@ function populateCity() {
 
     list_state.forEach(function(list_city) {
         city.options[city.options.length] = new Option(list_city, list_city);
-        console.log(list_city);
     });
     //reinitializing select elements
-    $('select').material_select();
+    $('#city').material_select();
 
 }
+
+
+
+function toggleForm(){
+
+    var desig = document.getElementById('desig').value;
+    optional_fields.innerHTML='';
+    if(desig === 'Patient'){
+        optional_fields.innerHTML = p_form;
+        $('select').material_select();
+        // populating state list
+        state = document.getElementById("state");
+        city = document.getElementById("city");
+        // calling to set the state select box for the default selected state
+        populateState();
 // calling to set the city select box for the default selected state
-populateCity();
+        populateCity();
+    }
+    else if(desig === 'Doctor'){
+        optional_fields.innerHTML = d_form;
+    }
+
+}
+
+
+
+
+
+
+
