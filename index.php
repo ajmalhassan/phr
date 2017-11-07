@@ -105,10 +105,8 @@
                             </div>
 
                             <div id="optional_fields"></div>
-
-
                             <div class="input-field col s12">
-                                <input class="waves-effect waves-light btn col s12 c-gradient" type="submit"
+                                <input class="btn col s12 c-gradient" type="submit"
                                        name="Submit" value="Register">
                             </div>
                         </form>

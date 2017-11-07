@@ -16,12 +16,8 @@
 <nav>
     <div class="nav-wrapper c-gradient">
         <div class="container">
-            <a href="index.php" class="brand-logo c-brand center">Patient Health Record</a>
-            <?php
-            if(isset($_SESSION)){
-                echo '<ul id="nav-mobile" class="right"><li><a href="#">Logout</a></li></ul>';
-            }
-            ?>
+            <a href="index.php" class="brand-logo c-brand center"><?php echo $_SESSION['username'].'\'s Dashboard'?></a>
+                <ul id="nav-mobile" class="right"><li><a href="/phr-dev">Logout</a></li></ul>
         </div>
     </div>
 </nav>
