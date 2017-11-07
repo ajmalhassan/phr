@@ -26,6 +26,7 @@ if(isset($_POST['Submit'])) {
             session_start();
             $_SESSION["id"] = $res["id"];
             $_SESSION["username"] = $res["username"];
+            $_SESSION["desig"] = $res["desig"];
 
 			if($res["desig"]== "Doctor"){
                 header('Location: doc_dash.php');

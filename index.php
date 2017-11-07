@@ -1,6 +1,12 @@
+<?php
+    session_start();
+    session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" href="css/style.css"/>
@@ -30,7 +36,7 @@
 
                     <div class="row">
                         <form class="col s12" action="login.php" method="post">
-                            <div class="input-field col s12 m">
+                            <div class="input-field col s12">
                                 <input id="username" type="text" name="username" required>
                                 <label for="username">Username</label>
                             </div>
