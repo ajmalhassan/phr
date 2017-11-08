@@ -145,7 +145,7 @@ include_once("nav.php");
                                     echo "<td id=\"drdate$counter\">" . $res['consulted_date'] . "</td>";
                                     echo "<td><a id=\"report$counter\" style=\"margin-left:3px;margin-right:3px;\" target=\"_blank\" class=\"btn-floating waves-effect waves-light btn green tooltipped\" data-position=\"top\" data-delay=\"50\" data-tooltip=\"view report\" href=\"$res[medical_report]\" ><i class=\"material-icons text-white\">open_in_new</i></a>";
                                     echo "<a style=\"margin-left:3px;margin-right:3px;\" class=\"btn-floating waves-effect waves-light btn blue tooltipped\" data-position=\"top\" data-delay=\"50\" data-tooltip=\"Edit\" href=\"#\" onClick=\"editRecord($counter)\"><i class=\"material-icons text-white\">edit</i></a>";
-                                    echo "<a style=\"margin-left:3px;margin-right:3px;\" class=\"btn-floating waves-effect waves-light btn red tooltipped\" data-position=\"top\" data-delay=\"50\" data-tooltip=\"Delete\" href=\"delete.php ? id = $res[r_id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><i class=\"material-icons text-white\">delete</i></a>";
+                                    echo "<a style=\"margin-left:3px;margin-right:3px;\" class=\"btn-floating waves-effect waves-light btn red tooltipped\" data-position=\"top\" data-delay=\"50\" data-tooltip=\"Delete\" href=\"delete.php?id=$res[r_id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><i class=\"material-icons text-white\">delete</i></a>";
                                     echo "<input id=\"r_id$counter\" value=\"$res[r_id]\" hidden></td>";
                                     echo "</tr>";
                                     $counter++;
