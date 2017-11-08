@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +17,22 @@
 <nav>
     <div class="nav-wrapper c-gradient">
         <div class="container">
-            <a href="index.php" class="brand-logo c-brand center"><?php echo $_SESSION['desig'].'\'s Dashboard'?></a>
-                <ul id="nav-mobile" class="right"><li><a href="/phr-dev">Logout</a></li></ul>
+            <a class="brand-logo c-brand center"><?php echo $_SESSION['desig'] . '\'s Dashboard' ?></a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/phr-dev">Logout</a></li>
+            </ul>
+            <?php
+            if ($_SESSION['desig'] == 'Patient') {
+                ?>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="./pat_profile.php">Profile</a></li>
+                </ul>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="./phr-dev">Account</a></li>
+                </ul>
+                <?php
+            }
+            ?>
         </div>
     </div>
 </nav>

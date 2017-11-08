@@ -240,6 +240,7 @@ include_once("nav.php");
             <div class="modal-content">
                 <div class="row">
                     <div class="col s6 offset-s3 center">
+
                         <h5>Edit report</h5>
                         <div class="input-field col s12">
                             <input id="edittestname" type="text" name="testname">
