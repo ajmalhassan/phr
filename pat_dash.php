@@ -153,7 +153,7 @@ include_once("nav.php");
                                 $counter = 1;
                                 }
                                 else {
-                                    echo "<h5 class='center'>Oops! Patient hasn't added any records</h5>";
+                                    echo "<h5 class='center'>You haven't added any records</h5>";
                                 }
                                 ?>
                                 </tbody>
