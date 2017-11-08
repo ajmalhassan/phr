@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2017 at 11:00 AM
+-- Generation Time: Nov 08, 2017 at 04:53 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -40,6 +40,14 @@ CREATE TABLE `doctor_record` (
   `email` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `doctor_record`
+--
+
+INSERT INTO `doctor_record` (`r_id`, `d_id`, `first_name`, `middle_name`, `last_name`, `Specialization`, `hospitals/clinics`, `phone`, `email`) VALUES
+(2, 3, 'John', 'Daniel', 'Smith', 'M.D', 'Amritha', 2147483647, 'demo@demo.demo'),
+(4, 27, 'John', 'Smith', 'Doe', 'M.D', 'Amritha', 2147483647, 'john@test.com');
+
 -- --------------------------------------------------------
 
 --
@@ -49,11 +57,22 @@ CREATE TABLE `doctor_record` (
 CREATE TABLE `patient_health_record` (
   `r_id` int(255) NOT NULL,
   `p_id` int(255) NOT NULL,
+  `testname` varchar(300) NOT NULL,
   `medical_report` varchar(10000) NOT NULL,
   `last_consulted_dr` varchar(1000) NOT NULL,
   `last_consulted_dr_phone` int(255) NOT NULL,
   `consulted_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `patient_health_record`
+--
+
+INSERT INTO `patient_health_record` (`r_id`, `p_id`, `testname`, `medical_report`, `last_consulted_dr`, `last_consulted_dr_phone`, `consulted_date`) VALUES
+(3, 21, 'Hypothyroidism', 'uploads/patientrecordtable1510068606.png', 'john doe', 989898, '2017-11-25'),
+(5, 21, 'Anemia', 'uploads/0yUzaiMd3MU1510080170.jpeg', 'Sam Wayne', 8312342, '2016-06-10'),
+(6, 22, 'blood group', 'uploads/screencapture1921684350phrdev15100745572491510074826.png', 'Ajmal Hassan', 2147483647, '2017-11-09'),
+(7, 21, 'bilirubin', 'uploads/1621510081289.jpeg', 'Sam Smith', 2147483647, '2017-11-04');
 
 -- --------------------------------------------------------
 
@@ -90,7 +109,8 @@ CREATE TABLE `patient_record` (
 --
 
 INSERT INTO `patient_record` (`r_id`, `p_id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `blood_group`, `height`, `weight`, `allergy`, `insurance`, `address`, `city`, `state`, `nationality`, `pincode`, `marital_status`, `phone`, `email`, `emergency-contact`) VALUES
-(1, 21, 'demo', 'demo', 'demo', 'Male', '2017-11-11', 'O+', 123, 123, 'no', 'yes', 'Runa Manzil JRA 65,, Janatha Stop, Manjummel P.O,', 'Port Blair*', 'Andaman and Nicobar Islands', 'India', 683501, 'Single', 2147483647, 'demo@demo.demo', 21312);
+(1, 21, 'John', '', 'Smith', 'Male', '2017-11-11', 'A+', 123, 75, 'no', 'yes', 'Runa Manzil JRA 65,, Janatha Stop, Manjummel P.O,', 'Port Blair*', 'Andaman and Nicobar Islands', 'India', 683501, 'Married', 2147483647, 'demo@demo.demo', 21312),
+(2, 22, 'rasmiya', '', 'najeem', 'Female', '1997-09-13', 'O+', 165, 55, 'no', 'no', 'runa manzil, manjummel', 'Kochi', 'Kerala', 'India', 683501, 'Single', 944728047, 'rasmiyanajeem@gmail.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -112,7 +132,9 @@ CREATE TABLE `reg_users` (
 INSERT INTO `reg_users` (`id`, `username`, `password`, `desig`) VALUES
 (3, 'ajmalhassan', '1234', 'Doctor'),
 (4, 'Rasmiya', '1234', 'Patient'),
-(21, 'demo', 'demo', 'Patient');
+(21, 'demo', '1234', 'Patient'),
+(22, 'rasmiya123', '1234', 'Patient'),
+(27, 'smithdoe', '1234', 'Doctor');
 
 --
 -- Indexes for dumped tables
@@ -154,22 +176,22 @@ ALTER TABLE `reg_users`
 -- AUTO_INCREMENT for table `doctor_record`
 --
 ALTER TABLE `doctor_record`
-  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `patient_health_record`
 --
 ALTER TABLE `patient_health_record`
-  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `patient_record`
 --
 ALTER TABLE `patient_record`
-  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `reg_users`
 --
 ALTER TABLE `reg_users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- Constraints for dumped tables
 --
