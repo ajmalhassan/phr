@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2017 at 04:53 AM
+-- Generation Time: Nov 08, 2017 at 05:34 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -72,7 +72,8 @@ INSERT INTO `patient_health_record` (`r_id`, `p_id`, `testname`, `medical_report
 (3, 21, 'Hypothyroidism', 'uploads/patientrecordtable1510068606.png', 'john doe', 989898, '2017-11-25'),
 (5, 21, 'Anemia', 'uploads/0yUzaiMd3MU1510080170.jpeg', 'Sam Wayne', 8312342, '2016-06-10'),
 (6, 22, 'blood group', 'uploads/screencapture1921684350phrdev15100745572491510074826.png', 'Ajmal Hassan', 2147483647, '2017-11-09'),
-(7, 21, 'bilirubin', 'uploads/1621510081289.jpeg', 'Sam Smith', 2147483647, '2017-11-04');
+(8, 21, 'Cardiomayopathy', 'uploads/test21510114569.png', 'House', 911, '2017-11-01'),
+(9, 28, 'Depression', 'uploads/doctortable1510114826.png', 'G. House', 911, '2017-09-07');
 
 -- --------------------------------------------------------
 
@@ -109,8 +110,9 @@ CREATE TABLE `patient_record` (
 --
 
 INSERT INTO `patient_record` (`r_id`, `p_id`, `first_name`, `middle_name`, `last_name`, `gender`, `dob`, `blood_group`, `height`, `weight`, `allergy`, `insurance`, `address`, `city`, `state`, `nationality`, `pincode`, `marital_status`, `phone`, `email`, `emergency-contact`) VALUES
-(1, 21, 'John', '', 'Smith', 'Male', '2017-11-11', 'A+', 123, 75, 'no', 'yes', 'Runa Manzil JRA 65,, Janatha Stop, Manjummel P.O,', 'Port Blair*', 'Andaman and Nicobar Islands', 'India', 683501, 'Married', 2147483647, 'demo@demo.demo', 21312),
-(2, 22, 'rasmiya', '', 'najeem', 'Female', '1997-09-13', 'O+', 165, 55, 'no', 'no', 'runa manzil, manjummel', 'Kochi', 'Kerala', 'India', 683501, 'Single', 944728047, 'rasmiyanajeem@gmail.com', 2147483647);
+(1, 21, 'John', 'Jade', 'Smith', 'Male', '2017-11-11', 'B-', 100, 75, 'nuts', 'yes', 'Runa Manzil JRA 65,, Janatha Stop, Manjummel P.O,', 'Port Blair*', 'Andaman and Nicobar Islands', 'India', 683501, 'Divorced', 2147483647, 'demo@demo.demo', 21312),
+(2, 22, 'rasmiya', '', 'najeem', 'Female', '1997-09-13', 'O+', 165, 55, 'no', 'no', 'runa manzil, manjummel', 'Kochi', 'Kerala', 'India', 683501, 'Single', 944728047, 'rasmiyanajeem@gmail.com', 2147483647),
+(3, 28, 'James', '', 'Wilson', 'Male', '2017-11-01', 'B+', 170, 67, 'no', 'yes', 'Vijayanagara Empire Street', 'Pasighat', 'Arunachal Pradesh', 'India', 682724, 'Divorced', 911, 'james@pb.com', 911);
 
 -- --------------------------------------------------------
 
@@ -132,9 +134,10 @@ CREATE TABLE `reg_users` (
 INSERT INTO `reg_users` (`id`, `username`, `password`, `desig`) VALUES
 (3, 'ajmalhassan', '1234', 'Doctor'),
 (4, 'Rasmiya', '1234', 'Patient'),
-(21, 'demo', '1234', 'Patient'),
+(21, 'demo', 'demo', 'Patient'),
 (22, 'rasmiya123', '1234', 'Patient'),
-(27, 'smithdoe', '1234', 'Doctor');
+(27, 'smithdoe', '1234', 'Doctor'),
+(28, 'james', 'demo', 'Patient');
 
 --
 -- Indexes for dumped tables
@@ -181,17 +184,17 @@ ALTER TABLE `doctor_record`
 -- AUTO_INCREMENT for table `patient_health_record`
 --
 ALTER TABLE `patient_health_record`
-  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `patient_record`
 --
 ALTER TABLE `patient_record`
-  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `r_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `reg_users`
 --
 ALTER TABLE `reg_users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- Constraints for dumped tables
 --

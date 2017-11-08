@@ -72,15 +72,15 @@
                             <p style="font-size: x-small; font-weight: bold; text-align: center;">All fields except
                                 middle name are mandatory.</p>
                             <div class="input-field col s12">
-                                <input id="first_name" type="text" name="f_name" required>
+                                <input id="first_name" type="text" name="f_name" pattern="[A-Za-z]" required>
                                 <label for="first_name">First Name</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="first_name" type="text" name="m_name">
+                                <input id="first_name" type="text" name="m_name" pattern="[A-Za-z]">
                                 <label for="first_name">Middle Name</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="last_name" type="text" name="l_name" required>
+                                <input id="last_name" type="text" name="l_name" pattern="[A-Za-z]" required>
                                 <label for="last_name">Last Name</label>
                             </div>
                             <div class="input-field col s12">
