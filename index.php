@@ -1,6 +1,10 @@
 <?php
     session_start();
     session_destroy();
+
+    if(isset($_GET['msg'])){
+        echo '<script type="text/javascript">alert("Invalid Username or Password!");</script>';
+    }
 ?>
 <!DOCTYPE html>
 <html>

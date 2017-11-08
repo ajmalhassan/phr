@@ -38,7 +38,7 @@ if(isset($_POST['Submit'])) {
 			// header('Location: dash.php');
 		}
 		else{
-			header('Location: index.php');
+			header('Location: index.php?msg="invalid username or password"');
 		}
 		
 		//display success message
