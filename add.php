@@ -79,7 +79,7 @@ if(isset($_POST['Submit'])) {
             //executing query and retrieving id
             $doc_res = mysqli_query($mysqli, $query);
             if($doc_res){
-                header('Location: dash.php');
+                header('Location: index.php');
             }
             else{
                 echo "error something went wrong..";

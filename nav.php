@@ -27,12 +27,18 @@
                 <ul id="nav-mobile" class="right">
                     <li><a href="./pat_profile.php">Profile</a></li>
                 </ul>
+                <?php
+            }else {
+                ?>
                 <ul id="nav-mobile" class="right">
-                    <li><a href="./phr-dev">Account</a></li>
+                    <li><a href="./doc_profile.php">Profile</a></li>
                 </ul>
                 <?php
             }
             ?>
+            <ul id="nav-mobile" class="right">
+                <li><a href="pass_edit.php">Account</a></li>
+            </ul>
         </div>
     </div>
 </nav>

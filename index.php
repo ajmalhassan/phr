@@ -95,10 +95,6 @@
                                 <input id="password" type="password" name="password" required>
                                 <label for="password">Password</label>
                             </div>
-                            <div class="input-field col s12">
-                                <input id="c_password" type="password" name="c_password" required>
-                                <label for="c_password">Confirm Password</label>
-                            </div>
 
                             <div class="input-field col s12">
                                 <select class="icons" id="desig" name="desig" onchange="toggleForm()">

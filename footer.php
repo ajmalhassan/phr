@@ -10,6 +10,8 @@
         $('select').material_select();
         $('.modal').modal();
         $('.tooltipped').tooltip({delay: 50});
+
+
     });
 
     //edit record
